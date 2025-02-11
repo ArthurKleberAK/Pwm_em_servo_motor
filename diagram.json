@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Arthur Kleber Alcantara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -11.6, "left": 172.8, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": -111.4, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 167.15,
+      "left": -86.4,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "servo1:GND", "pico:GND.8", "black", [ "h-48", "v-6.35" ] ],
+    [ "pico:3V3", "servo1:V+", "red", [ "h51.86", "v-3.35" ] ],
+    [ "pico:GP22", "servo1:PWM", "green", [ "h13.46", "v-61.05" ] ],
+    [ "led1:A", "pico:GP12", "blue", [ "v0" ] ],
+    [ "r1:1", "led1:C", "black", [ "h-9.6", "v-76.8" ] ],
+    [ "r1:2", "pico:GND.4", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
